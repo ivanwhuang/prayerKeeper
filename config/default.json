@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb://ivan123:ivan123@prayerkeeper-shard-00-00-z1kpn.mongodb.net:27017,prayerkeeper-shard-00-01-z1kpn.mongodb.net:27017,prayerkeeper-shard-00-02-z1kpn.mongodb.net:27017/test?ssl=true&replicaSet=PrayerKeeper-shard-0&authSource=admin&retryWrites=true&w=majority",
+  "jwtSecret": "naihuangbao"
+}
