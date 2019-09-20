@@ -49,8 +49,8 @@ connectDB();
 // Define Routes
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
-app.use('/api/prayerKeeper', require('./routes/api/prayerKeeper'));
-app.use('/api/prayerRequest', require('./routes/api/prayerRequest'));
+app.use('/api/keeper', require('./routes/api/keeper'));
+app.use('/api/prayers', require('./routes/api/prayers'));
 app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));
 
