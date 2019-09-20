@@ -1,6 +1,22 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const config = require('config');
+// testing out currents API
+const CurrentsAPI = require('currentsapi');
+const currentsapi = new CurrentsAPI(
+  'oMxslh2IevzwrbQtSjMwZ83rB3nh_Of1Cg7s9ut2nFlx6RfO'
+);
+
+// Test call with currentsAPI
+
+// currentsapi
+//   .search({
+//     language: 'en',
+//     category: 'world'
+//   })
+//   .then(res => {
+//     console.log(res);
+//   });
 
 const app = express();
 
@@ -17,7 +33,8 @@ const connectDB = async () => {
     await mongoose.connect(db, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useCreateIndex: true
+      useCreateIndex: true,
+      useFindAndModify: false
     });
     console.log('MongoDB Connected...');
   } catch (err) {
@@ -35,7 +52,7 @@ app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/prayerKeeper', require('./routes/api/prayerKeeper'));
 app.use('/api/prayerRequest', require('./routes/api/prayerRequest'));
 app.use('/api/profile', require('./routes/api/profile'));
-app.use('/api/post', require('./routes/api/post'));
+app.use('/api/posts', require('./routes/api/posts'));
 
 const PORT = process.env.PORT || 5000;
 
