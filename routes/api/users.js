@@ -6,6 +6,7 @@ const config = require('config');
 const { check, validationResult } = require('express-validator');
 
 const User = require('../../models/User');
+const Keeper = require('../../models/Keeper');
 
 // @route   POST api/users
 // @desc    Register user
@@ -53,6 +54,13 @@ router.post(
 
       // save new instane of user into mongoDB
       await user.save();
+
+      // Create a new prayer Keeper
+      const newKeeper = new Keeper({
+        user: user.id
+      });
+
+      await newKeeper.save();
 
       // return jsonwebtoken
       const payload = {
