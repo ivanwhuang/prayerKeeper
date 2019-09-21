@@ -3,6 +3,7 @@
   --primary-color: #17a2b8;
   --dark-color: #343a40;
   --light-color: #f4f4f4;
+  --info-color: #5bc0de;
   --danger-color: #dc3545;
   --success-color: #28a745;
 }
@@ -287,13 +288,20 @@ button {
 
 /* Navbar */
 .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0.7rem 2rem;
   position: fixed;
   z-index: 1;
   width: 100%;
   top: 0;
-  border-bottom: solid 1px var(--primary-color);
+  border-bottom: solid 1px var(--info-color);
   opacity: 0.9;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
 }
 
 .navbar ul {
@@ -304,10 +312,11 @@ button {
   color: #fff;
   padding: 0.45rem;
   margin: 0 0.25rem;
+  text-decoration: none;
 }
 
 .navbar a:hover {
-  color: var(--primary-color);
+  color: var(--info-color);
 }
 
 .navbar .welcome span {
@@ -470,6 +479,23 @@ button {
   color: #aaa;
   font-size: 0.8rem;
   margin-bottom: 0.5rem;
+}
+
+@media (max-width: 991px) {
+  .container {
+    margin-top: 8rem;
+  }
+
+  /* Navbar */
+  .navbar {
+    display: block;
+    text-align: center;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+    justify-content: center;
+  }
 }
 
 /* Mobile Styles */
