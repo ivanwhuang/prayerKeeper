@@ -5,10 +5,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import PrivateRoute from './components/routing/PrivateRoute';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import CustomNavbar from './components/layout/CustomNavbar';
 import Landing from './components/layout/Landing';
+import Keeper from './components/keeper/Keeper';
+import EditProfile from './components/profile/EditProfile';
+import Profiles from './components/profile/Profiles';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -39,6 +43,17 @@ const App = () => {
         <Switch>
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
+          <PrivateRoute exact path='/keeper' component={Keeper}></PrivateRoute>
+          <PrivateRoute
+            exact
+            path='/editProfile'
+            component={EditProfile}
+          ></PrivateRoute>
+          <PrivateRoute
+            exact
+            path='/people'
+            component={Profiles}
+          ></PrivateRoute>
         </Switch>
       </Router>
     </Provider>

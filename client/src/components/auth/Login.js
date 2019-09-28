@@ -25,7 +25,7 @@ const Login = ({ login, isAuthenticated }) => {
 
   // Redirect if Logged In
   if (isAuthenticated) {
-    return <Redirect to='/keeper' />;
+    return <Redirect to='/editProfile' />;
   }
 
   return (

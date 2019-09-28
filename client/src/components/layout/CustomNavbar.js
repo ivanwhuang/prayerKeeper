@@ -9,11 +9,11 @@ const CustomNavbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <Nav>
       <Link to='/news'>News</Link>
-      <Link to='/login'>Edit Profile</Link>
+      <Link to='/editProfile'>Edit Profile</Link>
       <Link to='/posts'>Posts</Link>
       <Link to='/people'>People</Link>
-      <Link to='/keeper'>Keeper</Link>
-      <Link to='/login'>
+      <Link to='/keeper'>My Keeper</Link>
+      <Link to='/' onClick={logout}>
         <i className='fas fa-sign-out-alt'></i> Log out
       </Link>
     </Nav>
@@ -29,11 +29,8 @@ const CustomNavbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
   return (
     <Navbar sticky='top' expand='lg' bg='dark' variant='dark'>
-      <Link
-        className='navbar-brand'
-        to={!loading && (isAuthenticated ? '/keeper' : '/')}
-      >
-        <i class='fas fa-bible'></i> PrayerKeeper
+      <Link className='navbar-brand' to='/'>
+        <i className='fas fa-bible'></i> PrayerKeeper
       </Link>
       {!loading && (isAuthenticated ? authLinks : guestLinks)}
     </Navbar>

@@ -79,7 +79,7 @@ router.post('/:id', auth, async (req, res) => {
 });
 
 // @route   GET api/keeper/
-// @desc    Get a user's prayer list from their prayer keeper
+// @desc    Get current user's prayer list from keeper
 // @access  Private
 router.get('/', auth, async (req, res) => {
   try {

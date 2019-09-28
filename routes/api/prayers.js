@@ -83,7 +83,7 @@ router.get('/user/:id', auth, async (req, res) => {
     if (!user) {
       return res.status(404).json({ msg: 'User not found ' });
     }
-    const prayers = await Prayer.find({ user: user.id });
+    const prayers = await Prayer.find({ user: user.id }).sort({ date: -1 });
 
     res.json(prayers);
   } catch (err) {
