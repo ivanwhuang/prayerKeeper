@@ -45,15 +45,15 @@ router.post(
 // @route   GET api/prayers
 // @desc    Get all prayers
 // @access  Private
-router.get('/', auth, async (req, res) => {
-  try {
-    const prayers = await Prayer.find().sort({ date: -1 });
-    res.json(prayers);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server Error');
-  }
-});
+// router.get('/', auth, async (req, res) => {
+//   try {
+//     const prayers = await Prayer.find().sort({ date: -1 });
+//     res.json(prayers);
+//   } catch (err) {
+//     console.error(err.message);
+//     res.status(500).send('Server Error');
+//   }
+// });
 
 // @route   GET api/prayers/:id
 // @desc    Get prayer request by ID
@@ -65,6 +65,23 @@ router.get('/:id', auth, async (req, res) => {
       return res.status(404).json({ msg: 'Prayer request not found' });
     }
     res.json(prayer);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind === 'ObjectId') {
+      return res.status(404).json({ msg: 'Prayer not found' });
+    }
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route   GET api/prayers/user/:id
+// @desc    Get all prayer requests belonging to current user
+// @access  Private
+router.get('/', auth, async (req, res) => {
+  try {
+    const prayers = await Prayer.find({ user: req.user.id }).sort({ date: -1 });
+
+    res.json(prayers);
   } catch (err) {
     console.error(err.message);
     if (err.kind === 'ObjectId') {

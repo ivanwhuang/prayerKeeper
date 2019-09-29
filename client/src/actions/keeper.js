@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { setAlert } from './alert';
+import { getMyRequests } from './prayers';
 
 import { GET_KEEPER, KEEPER_ERROR, ADD_REQUEST, DELETE_REQUEST } from './types';
 
@@ -12,6 +13,8 @@ export const getMyKeeper = () => async dispatch => {
       type: GET_KEEPER,
       payload: res.data
     });
+
+    dispatch(getMyRequests());
   } catch (err) {
     dispatch({
       type: KEEPER_ERROR,

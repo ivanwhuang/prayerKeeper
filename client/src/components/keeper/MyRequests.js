@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 
-import { addRequest, deleteRequest } from '../../actions/keeper';
+import { addMyRequest, deleteMyRequest } from '../../actions/prayers';
 
-const PrayerList = ({ prayerList, addRequest, deleteRequest }) => {
+const MyRequests = ({ myRequests, addMyRequest, deleteMyRequest }) => {
   const [formData, setFormData] = useState({
-    name: '',
     text: ''
   });
 
@@ -17,19 +16,17 @@ const PrayerList = ({ prayerList, addRequest, deleteRequest }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    addRequest(formData);
+    addMyRequest(formData);
     setFormData({
-      name: '',
       text: ''
     });
   };
 
-  const requests = prayerList.map(request => (
+  const requests = myRequests.map(request => (
     <div className='card' key={request._id}>
       <div className='card-body'>
-        <h5 className='card-title'>{request.name}</h5>
         <p className='card-text'>{request.text}</p>
-        <Button onClick={() => deleteRequest(request._id)} variant='info'>
+        <Button onClick={() => deleteMyRequest(request._id)} variant='info'>
           Delete
         </Button>
       </div>
@@ -38,23 +35,17 @@ const PrayerList = ({ prayerList, addRequest, deleteRequest }) => {
 
   return (
     <Fragment>
-      <h2>Prayer List</h2>
+      <h2>My Prayer Requests</h2>
       <div class='post-form'>
         <div class='bg-primary p'>
-          <h3>Add To Prayer List</h3>
+          <h3>Add A Prayer Request</h3>
         </div>
         <form class='form my-1' onSubmit={handleSubmit}>
-          <textarea
-            name='name'
-            placeholder='Who do you want to pray for?'
-            onChange={handleChange}
-            required
-          ></textarea>
           <textarea
             name='text'
             cols='30'
             rows='5'
-            placeholder='What do you want to pray about?'
+            placeholder='What do you need prayer for?'
             onChange={handleChange}
             required
           ></textarea>
@@ -66,13 +57,13 @@ const PrayerList = ({ prayerList, addRequest, deleteRequest }) => {
   );
 };
 
-PrayerList.propTypes = {
-  prayerList: PropTypes.array.isRequired,
-  addRequest: PropTypes.func.isRequired,
-  deleteRequest: PropTypes.func.isRequired
+MyRequests.propTypes = {
+  myRequests: PropTypes.array.isRequired,
+  addMyRequest: PropTypes.func.isRequired,
+  deleteMyRequest: PropTypes.func.isRequired
 };
 
 export default connect(
   null,
-  { addRequest, deleteRequest }
-)(PrayerList);
+  { addMyRequest, deleteMyRequest }
+)(MyRequests);

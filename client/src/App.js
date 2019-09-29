@@ -13,6 +13,7 @@ import Landing from './components/layout/Landing';
 import Keeper from './components/keeper/Keeper';
 import EditProfile from './components/profile/EditProfile';
 import Profiles from './components/profile/Profiles';
+import Profile from './components/profile/Profile';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -53,6 +54,11 @@ const App = () => {
             exact
             path='/people'
             component={Profiles}
+          ></PrivateRoute>
+          <PrivateRoute
+            exact
+            path='/profile/:id'
+            component={Profile}
           ></PrivateRoute>
         </Switch>
       </Router>

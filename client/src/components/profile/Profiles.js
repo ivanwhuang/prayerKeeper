@@ -14,7 +14,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
 
   return (
     <Container>
-      {loading ? (
+      {loading && profiles === null ? (
         <Spinner />
       ) : (
         <div>
