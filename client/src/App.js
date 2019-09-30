@@ -14,6 +14,7 @@ import Keeper from './components/keeper/Keeper';
 import EditProfile from './components/profile/EditProfile';
 import Profiles from './components/profile/Profiles';
 import Profile from './components/profile/Profile';
+import Posts from './components/post/Posts';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -60,6 +61,7 @@ const App = () => {
             path='/profile/:id'
             component={Profile}
           ></PrivateRoute>
+          <PrivateRoute exact path='/posts' component={Posts}></PrivateRoute>
         </Switch>
       </Router>
     </Provider>
