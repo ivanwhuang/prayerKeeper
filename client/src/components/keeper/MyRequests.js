@@ -55,6 +55,7 @@ const MyRequests = ({
               <Form.Control
                 placeholder=''
                 name='text'
+                value={formData.text}
                 onChange={handleChange}
                 required
               />

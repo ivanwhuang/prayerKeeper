@@ -52,6 +52,7 @@ const PrayerList = ({ prayerList, addRequest, deleteRequest }) => {
               <Form.Control
                 placeholder=''
                 name='name'
+                value={formData.name}
                 onChange={handleChange}
                 required
               />
@@ -62,6 +63,7 @@ const PrayerList = ({ prayerList, addRequest, deleteRequest }) => {
               <Form.Control
                 placeholder=''
                 name='text'
+                value={formData.text}
                 onChange={handleChange}
                 required
               />

@@ -15,20 +15,24 @@ const PostItem = ({
 }) => {
   return (
     <Fragment>
-      <div className='post bg-white p-1 my-1'>
-        <Link to={`/profile/${user}`}>
-          <Avatar icon={avatar} />
+      <div className='post bg-white p-1 my-1' style={{ display: 'flex' }}>
+        <div style={{ marginLeft: '2rem', marginRight: '2rem' }}>
+          <Link to={`/profile/${user}`}>
+            <Avatar icon={avatar} />
+          </Link>
+        </div>
+        <div style={{}}>
           <h4>{name}</h4>
-        </Link>
-        <p className='my-1'>{text}</p>
-        <p class='post-date'>
-          Posted on <Moment format='YYYY/MM//DD'>{date}</Moment>
-        </p>
-        {!auth.loading && user === auth.user._id && (
-          <Button onClick={() => deletePost(_id)} variant='info'>
-            Delete
-          </Button>
-        )}
+          <p className='my-1'>{text}</p>
+          <p class='post-date'>
+            Posted on <Moment format='YYYY/MM//DD'>{date}</Moment>
+          </p>
+          {!auth.loading && user === auth.user._id && (
+            <Button onClick={() => deletePost(_id)} variant='info'>
+              Delete
+            </Button>
+          )}
+        </div>
       </div>
     </Fragment>
   );
