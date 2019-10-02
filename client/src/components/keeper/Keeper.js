@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getMyKeeper } from '../../actions/keeper';
@@ -22,11 +22,19 @@ const Keeper = ({
   return loading || prayerList === null ? (
     <Spinner />
   ) : (
-    <Container>
+    <Container className='keeper'>
       <Alert />
-      <h1>My Keeper</h1>
-      <MyRequests myRequests={prayerRequests} />
-      <PrayerList prayerList={prayerList} />
+      <div style={{ textAlign: 'center' }}>
+        {!auth.loading && <h1>{auth.user.name}'s Keeper</h1>}
+      </div>
+      <Row>
+        <Col lg={true}>
+          <MyRequests myRequests={prayerRequests} />
+        </Col>
+        <Col lg={true}>
+          <PrayerList prayerList={prayerList} />
+        </Col>
+      </Row>
     </Container>
   );
 };

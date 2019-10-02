@@ -1,11 +1,18 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button } from 'react-bootstrap';
+import { Button, Card, Form } from 'react-bootstrap';
+
+import Avatar from '../layout/Avatar';
 
 import { addMyRequest, deleteMyRequest } from '../../actions/prayers';
 
-const MyRequests = ({ myRequests, addMyRequest, deleteMyRequest }) => {
+const MyRequests = ({
+  myRequests,
+  addMyRequest,
+  deleteMyRequest,
+  auth: { user }
+}) => {
   const [formData, setFormData] = useState({
     text: ''
   });
@@ -23,7 +30,7 @@ const MyRequests = ({ myRequests, addMyRequest, deleteMyRequest }) => {
   };
 
   const requests = myRequests.map(request => (
-    <div className='card' key={request._id}>
+    <div className='card my-1' key={request._id}>
       <div className='card-body'>
         <p className='card-text'>{request.text}</p>
         <Button onClick={() => deleteMyRequest(request._id)} variant='info'>
@@ -35,23 +42,34 @@ const MyRequests = ({ myRequests, addMyRequest, deleteMyRequest }) => {
 
   return (
     <Fragment>
-      <h2>My Prayer Requests</h2>
-      <div class='post-form'>
-        <div class='bg-primary p'>
-          <h3>Add A Prayer Request</h3>
-        </div>
-        <form class='form my-1' onSubmit={handleSubmit}>
-          <textarea
-            name='text'
-            cols='30'
-            rows='5'
-            placeholder='What do you need prayer for?'
-            onChange={handleChange}
-            required
-          ></textarea>
-          <input type='submit' class='btn btn-dark my-1' value='Submit' />
-        </form>
+      <div style={{ textAlign: 'center' }}>
+        <Avatar icon={user.avatar} />
+        <h2 style={{ marginTop: 10, color: '#808080' }}>My Prayer Requests</h2>
       </div>
+      <Card>
+        <Card.Header>What do you need prayer for?</Card.Header>
+        <Card.Body>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group controlId='formMyRequest'>
+              <Form.Label>Prayer Request</Form.Label>
+              <Form.Control
+                placeholder=''
+                name='text'
+                onChange={handleChange}
+                required
+              />
+              <Form.Text className='text-muted'>
+                Your requests will be publicly displayed on your profile.
+              </Form.Text>
+            </Form.Group>
+
+            <Button variant='primary' type='submit'>
+              Submit
+            </Button>
+          </Form>
+        </Card.Body>
+      </Card>
+
       {requests}
     </Fragment>
   );
@@ -63,7 +81,11 @@ MyRequests.propTypes = {
   deleteMyRequest: PropTypes.func.isRequired
 };
 
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   { addMyRequest, deleteMyRequest }
 )(MyRequests);

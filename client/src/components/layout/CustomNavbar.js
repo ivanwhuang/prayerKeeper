@@ -9,7 +9,7 @@ const CustomNavbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <Nav>
       <Link to='/news'>News</Link>
-      <Link to='/editProfile'>Edit Profile</Link>
+      <Link to='/myProfile'>My Profile</Link>
       <Link to='/posts'>Posts</Link>
       <Link to='/people'>People</Link>
       <Link to='/keeper'>My Keeper</Link>

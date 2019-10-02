@@ -53,6 +53,25 @@ export const addRequest = formData => async dispatch => {
   }
 };
 
+// Add another user's prayer request to Keeper
+export const addUserRequest = prayerId => async dispatch => {
+  try {
+    const res = await axios.post(`/api/keeper/${prayerId}`);
+
+    dispatch({
+      type: ADD_REQUEST,
+      payload: res.data
+    });
+
+    dispatch(setAlert('New Prayer Request Added', 'success'));
+  } catch (err) {
+    dispatch({
+      type: KEEPER_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
 // Delete prayer request from Keeper
 export const deleteRequest = requestId => async dispatch => {
   try {

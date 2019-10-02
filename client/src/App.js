@@ -12,6 +12,8 @@ import CustomNavbar from './components/layout/CustomNavbar';
 import Landing from './components/layout/Landing';
 import Keeper from './components/keeper/Keeper';
 import EditProfile from './components/profile/EditProfile';
+import MyProfile from './components/profile/MyProfile';
+
 import Profiles from './components/profile/Profiles';
 import Profile from './components/profile/Profile';
 import Posts from './components/post/Posts';
@@ -46,6 +48,11 @@ const App = () => {
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
           <PrivateRoute exact path='/keeper' component={Keeper}></PrivateRoute>
+          <PrivateRoute
+            exact
+            path='/myProfile'
+            component={MyProfile}
+          ></PrivateRoute>
           <PrivateRoute
             exact
             path='/editProfile'

@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import ProfileItem from './ProfileItem.js';
-import { getProfiles } from '../../actions/profile';
+import { getProfiles } from '../../actions/profiles';
 
 import { Container } from 'react-bootstrap';
 
-const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
+const Profiles = ({ getProfiles, profiles: { profiles, loading } }) => {
   useEffect(() => {
     getProfiles();
   }, [getProfiles]);
@@ -39,11 +39,11 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
 
 Profiles.propTypes = {
   getProfiles: PropTypes.func.isRequired,
-  profile: PropTypes.object.isRequired
+  profiles: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  profile: state.profile
+  profiles: state.profiles
 });
 
 export default connect(

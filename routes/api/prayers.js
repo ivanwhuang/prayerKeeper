@@ -74,7 +74,7 @@ router.get('/:id', auth, async (req, res) => {
   }
 });
 
-// @route   GET api/prayers/user/:id
+// @route   GET api/prayers/
 // @desc    Get all prayer requests belonging to current user
 // @access  Private
 router.get('/', auth, async (req, res) => {

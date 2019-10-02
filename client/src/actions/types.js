@@ -12,6 +12,7 @@ export const GET_PROFILES = 'GET_PROFILES';
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
 export const PROFILE_ERROR = 'PROFILE_ERROR';
+export const PROFILES_ERROR = 'PROFILES_ERROR';
 export const GET_KEEPER = 'GET_KEEPER';
 export const KEEPER_ERROR = 'KEEPER_ERROR';
 export const CLEAR_KEEPER = 'CLEAR_KEEPER';

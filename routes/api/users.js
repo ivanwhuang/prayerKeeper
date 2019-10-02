@@ -5,8 +5,10 @@ const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
 
+const auth = require('../../middleware/auth');
 const User = require('../../models/User');
 const Keeper = require('../../models/Keeper');
+const Profile = require('../../models/Profile');
 
 // @route   POST api/users
 // @desc    Register user
@@ -62,6 +64,13 @@ router.post(
 
       await newKeeper.save();
 
+      // Create a new Profile
+      const newProfile = new Profile({
+        user: user.id
+      });
+
+      await newProfile.save();
+
       // return jsonwebtoken
       const payload = {
         user: {
@@ -79,6 +88,49 @@ router.post(
           res.json({ token });
         }
       );
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server error');
+    }
+  }
+);
+
+// @route   POST api/users/avatar
+// @desc    Update Avatar icon
+// @access  Private
+router.post(
+  '/avatar',
+  [
+    auth,
+    [
+      check('avatar', 'Avatar is requried')
+        .not()
+        .isEmpty()
+    ]
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { avatar } = req.body;
+
+    try {
+      // See if user exists
+      let user = await User.findById(req.user.id);
+
+      if (!user) {
+        return res.status(404).json({ msg: 'User not found' });
+      }
+
+      user = await User.findOneAndUpdate(
+        { _id: req.user.id },
+        { $set: { avatar: avatar } },
+        { new: true }
+      );
+
+      return res.json(user);
     } catch (err) {
       console.error(err.message);
       res.status(500).send('Server error');

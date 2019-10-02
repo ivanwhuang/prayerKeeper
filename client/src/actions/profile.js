@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { setAlert } from './alert';
 
+import { getMyRequests, getUserRequests } from './prayers';
+
 import {
   GET_PROFILE,
   PROFILE_ERROR,
@@ -18,6 +20,8 @@ export const getCurrentProfile = () => async dispatch => {
       type: GET_PROFILE,
       payload: res.data
     });
+
+    dispatch(getMyRequests());
   } catch (err) {
     dispatch({
       type: PROFILE_ERROR,
@@ -56,25 +60,6 @@ export const updateProfile = formData => async dispatch => {
   }
 };
 
-// Get profiles
-export const getProfiles = () => async dispatch => {
-  try {
-    // dispatch({ type: CLEAR_PROFILE });
-
-    const res = await axios.get('/api/profile');
-
-    dispatch({
-      type: GET_PROFILES,
-      payload: res.data
-    });
-  } catch (err) {
-    dispatch({
-      type: PROFILE_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
-    });
-  }
-};
-
 // Get profile By Id
 export const getProfileById = userId => async dispatch => {
   try {
@@ -84,6 +69,8 @@ export const getProfileById = userId => async dispatch => {
       type: GET_PROFILE,
       payload: res.data
     });
+
+    dispatch(getUserRequests(userId));
   } catch (err) {
     dispatch({
       type: PROFILE_ERROR,

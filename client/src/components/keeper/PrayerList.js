@@ -1,8 +1,9 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button } from 'react-bootstrap';
+import { Button, Form, Card } from 'react-bootstrap';
 
+import People from '../../img/people.png';
 import { addRequest, deleteRequest } from '../../actions/keeper';
 
 const PrayerList = ({ prayerList, addRequest, deleteRequest }) => {
@@ -25,7 +26,7 @@ const PrayerList = ({ prayerList, addRequest, deleteRequest }) => {
   };
 
   const requests = prayerList.map(request => (
-    <div className='card' key={request._id}>
+    <div className='card my-1' key={request._id}>
       <div className='card-body'>
         <h5 className='card-title'>{request.name}</h5>
         <p className='card-text'>{request.text}</p>
@@ -38,29 +39,44 @@ const PrayerList = ({ prayerList, addRequest, deleteRequest }) => {
 
   return (
     <Fragment>
-      <h2>Prayer List</h2>
-      <div class='post-form'>
-        <div class='bg-primary p'>
-          <h3>Add To Prayer List</h3>
-        </div>
-        <form class='form my-1' onSubmit={handleSubmit}>
-          <textarea
-            name='name'
-            placeholder='Who do you want to pray for?'
-            onChange={handleChange}
-            required
-          ></textarea>
-          <textarea
-            name='text'
-            cols='30'
-            rows='5'
-            placeholder='What do you want to pray about?'
-            onChange={handleChange}
-            required
-          ></textarea>
-          <input type='submit' class='btn btn-dark my-1' value='Submit' />
-        </form>
+      <div style={{ textAlign: 'center' }}>
+        <img className='my-1' style={{ width: '100px' }} src={People} alt='' />
+        <h2 style={{ marginTop: 10, color: '#808080' }}>Prayer List</h2>
       </div>
+      <Card>
+        <Card.Header>Who are you praying for?</Card.Header>
+        <Card.Body>
+          <Form onSubmit={handleSubmit}>
+            <Form.Label>Name</Form.Label>
+            <Form.Group controlId='formUserName'>
+              <Form.Control
+                placeholder=''
+                name='name'
+                onChange={handleChange}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group controlId='formUserRequest'>
+              <Form.Label>Prayer Request</Form.Label>
+              <Form.Control
+                placeholder=''
+                name='text'
+                onChange={handleChange}
+                required
+              />
+              <Form.Text className='text-muted'>
+                This will be added to your private list of prayer requests
+              </Form.Text>
+            </Form.Group>
+
+            <Button variant='primary' type='submit'>
+              Submit
+            </Button>
+          </Form>
+        </Card.Body>
+      </Card>
+
       {requests}
     </Fragment>
   );

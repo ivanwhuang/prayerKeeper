@@ -373,8 +373,12 @@ button {
   text-align: center;
 }
 
+.profile img {
+  width: 100px;
+}
+
 .profile-top img {
-  width: 250px;
+  width: 150px;
 }
 
 .profile-top .icons a {
@@ -481,6 +485,19 @@ button {
   margin-bottom: 0.5rem;
 }
 
+/* Avatar icon */
+.keeper img {
+  width: 100px;
+}
+
+/* .miniAvatar {
+  width: 100px;
+}
+
+.largeAvatar {
+  width: 150px;
+} */
+
 @media (max-width: 991px) {
   .container {
     margin-top: 8rem;
@@ -531,7 +548,7 @@ button {
 
   .profile-top img,
   .profile img {
-    width: 200px;
+    width: 100px;
     margin: auto;
   }
 

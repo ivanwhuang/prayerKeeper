@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import Avatar from '../layout/Avatar';
+
 const ProfileItem = ({ profile: { user, location, hobbies } }) => {
   return (
     <div className='profile bg-light'>
-      <img src='avatar' alt='' className='round-img' />
+      <Avatar icon={user.avatar} />
       <div>
         <h2>{user.name}</h2>
         <p className='my-1'>{location && <span>{location}</span>} </p>

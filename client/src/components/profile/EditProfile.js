@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
 import { Container } from 'react-bootstrap';
 import { getCurrentProfile, updateProfile } from '../../actions/profile';
 import Spinner from '../layout/Spinner';
@@ -147,7 +147,10 @@ const EditProfile = ({
           </div>
         </div>
 
-        <input type='submit' className='btn btn-primary my-1' />
+        <input type='submit' className='btn btn-info my-1' />
+        <Link className='btn btn-light my-1' to='/myProfile'>
+          Go Back
+        </Link>
       </form>
     </Container>
   );
