@@ -19,9 +19,9 @@ const Posts = ({ posts: { posts, loading }, getPosts }) => {
   ) : (
     <Container>
       <Alert />
-      <h1 className='large text-primary'>Posts</h1>
+      <h1 className='large'>Posts</h1>
       <p className='lead'>
-        <i className='fas fa-user'></i> Welcome to the community
+        <i className='fas fa-user'></i> Anything on Your Mind?
       </p>
       <PostForm />
       <div className='posts'>

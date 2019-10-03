@@ -24,12 +24,11 @@ const PostForm = ({ addPost }) => {
 
   return (
     <Fragment>
-      <Card>
-        <Card.Header>Anything on Your Mind? </Card.Header>
+      <Card style={{ marginBottom: '2rem' }}>
+        <Card.Header>Create a New Post</Card.Header>
         <Card.Body>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId='formNewPost'>
-              <Form.Label>Create a new post</Form.Label>
               <Form.Control
                 value={formData.text}
                 placeholder=''

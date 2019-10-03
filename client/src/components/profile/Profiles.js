@@ -18,11 +18,19 @@ const Profiles = ({ getProfiles, profiles: { profiles, loading } }) => {
         <Spinner />
       ) : (
         <div>
-          <h1 className='large text-primary'>Community</h1>
+          <h1 className='large'>People</h1>
           <p className='lead'>
-            <i className='fab fa-connectdevelop'></i> Encourage The Community!
+            <i className='fab fa-connectdevelop'></i> Encourage Those Around
+            You!
           </p>
-          <div className='profiles'>
+          <div
+            // className='profiles'
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center'
+            }}
+          >
             {profiles.length > 0 ? (
               profiles.map(profile => (
                 <ProfileItem key={profile._id} profile={profile} />

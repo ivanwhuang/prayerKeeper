@@ -37,7 +37,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   return (
     <Container>
       <Alert />
-      <h1 className='large text-primary'>Sign Up</h1>
+      <h1 className='large text-info'>Sign Up</h1>
       <p className='lead'>
         <i className='fas fa-user'></i> Create Your Account
       </p>
@@ -70,6 +70,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             minLength='6'
           />
         </div>
+        <small className='form-text'>
+          PrayerKeeper saves a salted and hashed version of your password, not
+          the original one.
+        </small>
         <div className='form-group'>
           <input
             type='password'
@@ -80,7 +84,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             minLength='6'
           />
         </div>
-        <input type='submit' className='btn btn-primary' value='Register' />
+        <input type='submit' className='btn btn-info' value='Register' />
       </form>
       <p className='my-1'>
         Already have an account? <Link to='/login'>Sign In</Link>

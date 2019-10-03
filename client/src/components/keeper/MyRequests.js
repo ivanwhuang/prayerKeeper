@@ -64,7 +64,7 @@ const MyRequests = ({
               </Form.Text>
             </Form.Group>
 
-            <Button variant='primary' type='submit'>
+            <Button variant='dark' type='submit'>
               Submit
             </Button>
           </Form>

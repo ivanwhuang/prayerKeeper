@@ -31,7 +31,7 @@ const Login = ({ login, isAuthenticated }) => {
   return (
     <Container>
       <Alert />
-      <h1 className='large text-primary'>Sign In</h1>
+      <h1 className='large text-info'>Sign In</h1>
       <p className='lead'>
         <i className='fas fa-user'></i> Sign Into Your Account
       </p>
@@ -57,7 +57,7 @@ const Login = ({ login, isAuthenticated }) => {
             required
           />
         </div>
-        <input type='submit' className='btn btn-primary' value='Login' />
+        <input type='submit' className='btn btn-info' value='Login' />
       </form>
       <p className='my-1'>
         Don't have an account? <Link to='/register'>Sign Up</Link>
