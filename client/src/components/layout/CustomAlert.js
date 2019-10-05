@@ -8,8 +8,8 @@ const CustomAlert = ({ alerts }) => {
     alerts !== null &&
     alerts.length > 0 &&
     alerts.map(alert => (
-      <Alert variant={alert.alertType}>
-        <p>{alert.msg}</p>
+      <Alert key={alert.id} variant={alert.alertType}>
+        <h6>{alert.msg}</h6>
       </Alert>
     ));
   return <Fragment>{displayAlerts}</Fragment>;

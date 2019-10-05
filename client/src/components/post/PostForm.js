@@ -30,11 +30,13 @@ const PostForm = ({ addPost }) => {
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId='formNewPost'>
               <Form.Control
+                as='textarea'
                 value={formData.text}
                 placeholder=''
                 name='text'
                 onChange={handleChange}
                 required
+                rows='3'
               />
             </Form.Group>
 

@@ -12,6 +12,7 @@ import CustomNavbar from './components/layout/CustomNavbar';
 import Landing from './components/layout/Landing';
 import Keeper from './components/keeper/Keeper';
 import EditProfile from './components/profile/EditProfile';
+import EditAvatar from './components/profile/EditAvatar';
 import MyProfile from './components/profile/MyProfile';
 
 import Profiles from './components/profile/Profiles';
@@ -57,6 +58,11 @@ const App = () => {
             exact
             path='/editProfile'
             component={EditProfile}
+          ></PrivateRoute>
+          <PrivateRoute
+            exact
+            path='/editAvatar'
+            component={EditAvatar}
           ></PrivateRoute>
           <PrivateRoute
             exact

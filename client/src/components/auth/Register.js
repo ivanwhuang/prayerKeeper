@@ -49,6 +49,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             name='name'
             value={name}
             onChange={handleChange}
+            required
           />
         </div>
         <div className='form-group'>
@@ -58,6 +59,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             name='email'
             value={email}
             onChange={handleChange}
+            required
           />
         </div>
         <div className='form-group'>
@@ -68,6 +70,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             value={password}
             onChange={handleChange}
             minLength='6'
+            required
           />
         </div>
         <small className='form-text'>
@@ -82,6 +85,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             value={password2}
             onChange={handleChange}
             minLength='6'
+            required
           />
         </div>
         <input type='submit' className='btn btn-info' value='Register' />

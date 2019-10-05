@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Container } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 import { getCurrentProfile, updateProfile } from '../../actions/profile';
 import Spinner from '../layout/Spinner';
 
 const EditProfile = ({
   getCurrentProfile,
   updateProfile,
+  history,
   profile: { profile, loading }
 }) => {
   const [formData, setFormData] = useState({
@@ -51,19 +52,17 @@ const EditProfile = ({
 
   const handleSubmit = e => {
     e.preventDefault();
-    updateProfile(formData);
+    updateProfile(formData, history);
   };
 
   return loading && profile === null ? (
     <Spinner />
   ) : (
     <Container>
-      <h1 className='large text-primary'>Edit Your Profile</h1>
+      <h1 className='large'>Edit Your Profile</h1>
       <p className='lead'>
-        <i className='fas fa-user'></i> Let's Add Some Basic Info About Who
-        Yourself
+        <i className='fas fa-user'></i> Add Some Basic Info Yourself
       </p>
-      <small>* = required field</small>
       <form className='form' onSubmit={handleSubmit}>
         <div className='form-group'>
           <textarea
@@ -85,7 +84,7 @@ const EditProfile = ({
             onChange={handleChange}
           />
           <small className='form-text'>
-            City & state suggested (eg. Boston, MA)
+            City & state suggested (eg. San Francisco, CA)
           </small>
         </div>
         <div className='form-group'>
@@ -148,7 +147,7 @@ const EditProfile = ({
         </div>
 
         <input type='submit' className='btn btn-info my-1' />
-        <Link className='btn btn-light my-1' to='/myProfile'>
+        <Link className='btn btn-dark my-1' to='/myProfile'>
           Go Back
         </Link>
       </form>
@@ -169,4 +168,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { getCurrentProfile, updateProfile }
-)(EditProfile);
+)(withRouter(EditProfile));

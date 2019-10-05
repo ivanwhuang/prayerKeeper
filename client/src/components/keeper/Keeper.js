@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { getMyKeeper } from '../../actions/keeper';
 import PrayerList from './PrayerList';
 import MyRequests from './MyRequests';
-import Alert from '../layout/CustomAlert';
 
 import Spinner from '../layout/Spinner';
 
@@ -23,7 +22,6 @@ const Keeper = ({
     <Spinner />
   ) : (
     <Container className='keeper'>
-      <Alert />
       <div style={{ textAlign: 'center' }}>
         {!auth.loading && <h1>{auth.user.name}'s Keeper</h1>}
       </div>

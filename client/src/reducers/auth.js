@@ -2,6 +2,7 @@ import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
   USER_LOADED,
+  UPDATE_AVATAR,
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
@@ -21,6 +22,7 @@ export default function(state = initialState, action) {
 
   switch (type) {
     case USER_LOADED:
+    case UPDATE_AVATAR:
       return {
         ...state,
         isAuthenticated: true,

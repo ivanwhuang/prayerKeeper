@@ -30,12 +30,14 @@ const MyRequests = ({
   };
 
   const requests = myRequests.map(request => (
-    <div className='card my-1' key={request._id}>
+    <div className='card' key={request._id}>
       <div className='card-body'>
         <p className='card-text'>{request.text}</p>
-        <Button onClick={() => deleteMyRequest(request._id)} variant='info'>
-          Delete
-        </Button>
+        <div>
+          <Button onClick={() => deleteMyRequest(request._id)} variant='info'>
+            Delete
+          </Button>
+        </div>
       </div>
     </div>
   ));
@@ -46,7 +48,7 @@ const MyRequests = ({
         <Avatar icon={user.avatar} />
         <h2 style={{ marginTop: 10, color: '#808080' }}>My Prayer Requests</h2>
       </div>
-      <Card>
+      <Card style={{ marginBottom: '1rem' }}>
         <Card.Header>What do you need prayer for?</Card.Header>
         <Card.Body>
           <Form onSubmit={handleSubmit}>

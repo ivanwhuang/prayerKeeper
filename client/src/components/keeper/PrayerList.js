@@ -26,7 +26,7 @@ const PrayerList = ({ prayerList, addRequest, deleteRequest }) => {
   };
 
   const requests = prayerList.map(request => (
-    <div className='card my-1' key={request._id}>
+    <div className='card' key={request._id}>
       <div className='card-body'>
         <h5 className='card-title'>{request.name}</h5>
         <p className='card-text'>{request.text}</p>
@@ -43,7 +43,7 @@ const PrayerList = ({ prayerList, addRequest, deleteRequest }) => {
         <img className='my-1' style={{ width: '100px' }} src={People} alt='' />
         <h2 style={{ marginTop: 10, color: '#808080' }}>Prayer List</h2>
       </div>
-      <Card>
+      <Card style={{ marginBottom: '1rem' }}>
         <Card.Header>Who are you praying for?</Card.Header>
         <Card.Body>
           <Form onSubmit={handleSubmit}>

@@ -5,6 +5,7 @@ import {
   REGISTER_FAIL,
   USER_LOADED,
   AUTH_ERROR,
+  UPDATE_AVATAR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
@@ -28,6 +29,38 @@ export const loadUser = () => async dispatch => {
   } catch (err) {
     dispatch({
       type: AUTH_ERROR
+    });
+  }
+};
+
+// Update Avatar Icon
+export const updateAvatar = (newIcon, history) => async dispatch => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+  try {
+    const res = await axios.post('/api/users/avatar', newIcon, config);
+
+    dispatch({
+      type: UPDATE_AVATAR,
+      payload: res.data
+    });
+
+    dispatch(setAlert('Icon Updated', 'success'));
+
+    history.push('/myProfile');
+  } catch (err) {
+    const errors = err.response.data.errors;
+    if (errors) {
+      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
+    }
+
+    dispatch({
+      type: AUTH_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
     });
   }
 };

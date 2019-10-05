@@ -22,10 +22,19 @@ const MyProfile = ({
     <Spinner />
   ) : (
     <Container>
-      <Link to='/editProfile' className='btn btn-info'>
-        Edit Profile
-      </Link>
-
+      <div>
+        <p className='large'>
+          My Profile
+          <div style={{ float: 'right' }}>
+            <Link to='/editProfile' className='btn btn-dark'>
+              Edit Profile
+            </Link>
+            <Link to='/editAvatar' className='btn btn-info'>
+              Change Avatar Icon
+            </Link>
+          </div>
+        </p>
+      </div>
       <ProfileAbout profile={profile} prayerRequests={prayerRequests} />
     </Container>
   );

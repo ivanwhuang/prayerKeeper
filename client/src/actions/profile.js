@@ -31,7 +31,7 @@ export const getCurrentProfile = () => async dispatch => {
 };
 
 // Update profile
-export const updateProfile = formData => async dispatch => {
+export const updateProfile = (formData, history) => async dispatch => {
   try {
     const config = {
       headers: {
@@ -47,6 +47,8 @@ export const updateProfile = formData => async dispatch => {
     });
 
     dispatch(setAlert('Profile Updated', 'success'));
+
+    history.push('/myProfile');
   } catch (err) {
     const errors = err.response.data.errors;
     if (errors) {

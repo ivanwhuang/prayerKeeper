@@ -8,7 +8,7 @@ import { logout } from '../../actions/auth';
 const CustomNavbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <Nav>
-      <Link to='/news'>News</Link>
+      {/* <Link to='/news'>News</Link> */}
       <Link to='/myProfile'>My Profile</Link>
       <Link to='/posts'>Posts</Link>
       <Link to='/people'>People</Link>
@@ -21,7 +21,6 @@ const CustomNavbar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
   const guestLinks = (
     <Nav>
-      <Link to='/news'>News</Link>
       <Link to='/register'>Register</Link>
       <Link to='/login'>Login</Link>
     </Nav>

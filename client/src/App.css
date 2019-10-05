@@ -6,6 +6,10 @@
   --info-color: #5bc0de;
   --danger-color: #dc3545;
   --success-color: #28a745;
+  --warning-color: #ffc107;
+  --secondary-color: #6c757d;
+  --purple-color: #a569bd;
+  --salmon-color: #fa8072;
 }
 
 * {
@@ -53,7 +57,7 @@ img {
 }
 
 .large {
-  font-size: 3rem;
+  font-size: 2.5rem;
   line-height: 1.2;
   margin-bottom: 1rem;
 }
@@ -127,6 +131,11 @@ img {
   margin: 3rem 0;
 }
 
+.cardBorder {
+  border-width: '2px';
+  border-color: '#1e1e1e';
+}
+
 .btn {
   padding: 0.4rem 1.3rem;
   font-size: 1rem;
@@ -138,43 +147,61 @@ img {
 }
 
 .bg-primary,
-.badge-primary,
-.alert-primary {
+.badge-primary {
   background: var(--primary-color);
   color: #fff;
 }
 
 .bg-light,
-.badge-light,
-.alert-light {
+.badge-light {
   background: var(--light-color);
   color: #333;
 }
 
 .bg-dark,
-.badge-dark,
-.alert-dark {
+.badge-dark {
   background: var(--dark-color);
   color: #fff;
 }
 
 .bg-danger,
-.badge-danger,
-.alert-danger {
+.badge-danger {
   background: var(--danger-color);
   color: #fff;
 }
 
 .bg-success,
-.badge-success,
-.alert-success {
+.badge-success {
   background: var(--success-color);
   color: #fff;
 }
 
+.bg-warning,
+.badge-warning {
+  background: var(--warning-color);
+  color: #fff;
+}
+
+.bg-secondary,
+.badge-secondary {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+.bg-purple,
+.badge-purple {
+  background: var(--purple-color);
+  color: #fff;
+}
+
+.bg-salmon,
+.badge-salmon {
+  background: var(--salmon-color);
+  color: #fff;
+}
+
 .bg-white,
-.badge-white,
-.alert-white {
+.badge-white {
   background: #fff;
   color: #333;
   border: #ccc solid 1px;
@@ -185,14 +212,6 @@ img {
   padding: 0.1rem;
   text-align: center;
   margin: 0.3rem;
-  background: var(--light-color);
-  color: #333;
-}
-
-.alert {
-  padding: 0.8rem;
-  margin: 1rem 0;
-  opacity: 0.9;
   background: var(--light-color);
   color: #333;
 }
@@ -209,7 +228,7 @@ img {
 .line {
   height: 1px;
   background: #ccc;
-  margin: 1.5rem 0;
+  margin: 0.5rem 0;
 }
 
 /* Overlay */
@@ -365,7 +384,7 @@ button {
 }
 
 .profile-top {
-  grid-area: top;
+  background: url('./img/mint-background.jpg') no-repeat center center/cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -395,7 +414,7 @@ button {
   text-align: center;
 }
 
-.profile-about .skills {
+.profile-about .hobbies {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -432,22 +451,8 @@ button {
   margin: 0.5rem 0;
 }
 
-.profile-github {
-  grid-area: github;
-}
-
-.profile-github .repo {
-  display: flex;
-}
-
-.profile-github .repo > div:first-child {
-  flex: 7;
-  flex-basis: 70%;
-}
-
-.profile-github > div:last-child {
-  flex: 3;
-  flex-basis: 20%;
+.profile-requests {
+  background: url('./img/wood.jpg') no-repeat center center/cover;
 }
 
 /* Posts Page */
@@ -494,6 +499,14 @@ button {
   width: 100px;
 }
 
+.currentAvatar img {
+  width: 100px;
+}
+
+.editAvatar img {
+  width: 50px;
+}
+
 /* .miniAvatar {
   width: 100px;
 }
@@ -501,6 +514,10 @@ button {
 .largeAvatar {
   width: 150px;
 } */
+
+.avatarCard {
+  margin: 1rem;
+}
 
 @media (max-width: 991px) {
   .container {
@@ -515,6 +532,7 @@ button {
 
   .navbar-nav {
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
   }
 }
@@ -565,7 +583,7 @@ button {
       'github';
   }
 
-  .profile-about .skills {
+  .profile-about .hobbies {
     flex-direction: column;
   }
 
@@ -581,5 +599,11 @@ button {
   .post a,
   .post button {
     padding: 0.3rem 0.4rem;
+  }
+}
+
+@media (max-width: 565px) {
+  .container {
+    margin-top: 10rem;
   }
 }

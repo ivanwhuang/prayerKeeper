@@ -7,6 +7,8 @@ import { getProfileById } from '../../actions/profile';
 import ProfileAbout from './ProfileAbout';
 import Spinner from '../layout/Spinner';
 
+import Alert from '../layout/CustomAlert';
+
 import { Container } from 'react-bootstrap';
 
 const Profile = ({
@@ -17,15 +19,23 @@ const Profile = ({
 }) => {
   useEffect(() => {
     getProfileById(match.params.id);
-  }, [getProfileById, match.params.id]);
+  }, [getProfileById, profile, match.params.id]);
 
   return loading && profile === null ? (
     <Spinner />
   ) : (
     <Container>
-      <Link to='/people' className='btn btn-light'>
-        Back To Profiles
-      </Link>
+      <Alert />
+      <div>
+        <p className='large'>
+          {profile.user.name}'s Profile
+          <div style={{ float: 'right' }}>
+            <Link to='/people' className='btn btn-dark'>
+              Back to Profiles
+            </Link>
+          </div>
+        </p>
+      </div>
 
       <ProfileAbout profile={profile} prayerRequests={prayerRequests} />
     </Container>
