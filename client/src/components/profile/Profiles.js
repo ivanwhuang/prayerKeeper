@@ -24,8 +24,7 @@ const Profiles = ({
         <div>
           <h1 className='large'>People</h1>
           <p className='lead'>
-            <i className='fab fa-connectdevelop'></i> Encourage Those Around
-            You!
+            <i className='fas fa-users'></i> Encourage Those Around You!
           </p>
           <div
             style={{

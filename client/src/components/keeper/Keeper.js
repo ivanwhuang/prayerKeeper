@@ -15,8 +15,8 @@ const Keeper = ({
   prayers: { prayerRequests }
 }) => {
   useEffect(() => {
-    getMyKeeper();
-  }, [getMyKeeper]);
+    auth.isAuthenticated === true && getMyKeeper();
+  }, [getMyKeeper, auth]);
 
   return loading || prayerList === null ? (
     <Spinner />

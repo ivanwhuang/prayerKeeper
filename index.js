@@ -1,22 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const config = require('config');
-// testing out currents API
-const CurrentsAPI = require('currentsapi');
-const currentsapi = new CurrentsAPI(
-  'oMxslh2IevzwrbQtSjMwZ83rB3nh_Of1Cg7s9ut2nFlx6RfO'
-);
-
-// Test call with currentsAPI
-
-// currentsapi
-//   .search({
-//     language: 'en',
-//     category: 'world'
-//   })
-//   .then(res => {
-//     console.log(res);
-//   });
+const path = require('path');
 
 const app = express();
 
@@ -53,6 +38,16 @@ app.use('/api/keeper', require('./routes/api/keeper'));
 app.use('/api/prayers', require('./routes/api/prayers'));
 app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));
+
+// Serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+  // SET static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 const PORT = process.env.PORT || 5000;
 
