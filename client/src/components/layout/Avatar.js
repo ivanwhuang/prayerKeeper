@@ -19,21 +19,35 @@ import Girl7 from '../../img/avatarIcons/girl-7.png';
 const Avatar = ({ icon }) => {
   return (
     <Fragment>
-      {icon === 'user' && <img class='round-img my-1' src={User} alt='' />}
-      {icon === 'boy-1' && <img class='round-img my-1' src={Boy1} alt='' />}
-      {icon === 'boy-2' && <img class='round-img my-1' src={Boy2} alt='' />}
-      {icon === 'boy-3' && <img class='round-img my-1' src={Boy3} alt='' />}
-      {icon === 'boy-4' && <img class='round-img my-1' src={Boy4} alt='' />}
-      {icon === 'boy-5' && <img class='round-img my-1' src={Boy5} alt='' />}
-      {icon === 'boy-6' && <img class='round-img my-1' src={Boy6} alt='' />}
-      {icon === 'boy-7' && <img class='round-img my-1' src={Boy7} alt='' />}
-      {icon === 'girl-1' && <img class='round-img my-1' src={Girl1} alt='' />}
-      {icon === 'girl-2' && <img class='round-img my-1' src={Girl2} alt='' />}
-      {icon === 'girl-3' && <img class='round-img my-1' src={Girl3} alt='' />}
-      {icon === 'girl-4' && <img class='round-img my-1' src={Girl4} alt='' />}
-      {icon === 'girl-5' && <img class='round-img my-1' src={Girl5} alt='' />}
-      {icon === 'girl-6' && <img class='round-img my-1' src={Girl6} alt='' />}
-      {icon === 'girl-7' && <img class='round-img my-1' src={Girl7} alt='' />}
+      {icon === 'user' && <img className='round-img my-1' src={User} alt='' />}
+      {icon === 'boy-1' && <img className='round-img my-1' src={Boy1} alt='' />}
+      {icon === 'boy-2' && <img className='round-img my-1' src={Boy2} alt='' />}
+      {icon === 'boy-3' && <img className='round-img my-1' src={Boy3} alt='' />}
+      {icon === 'boy-4' && <img className='round-img my-1' src={Boy4} alt='' />}
+      {icon === 'boy-5' && <img className='round-img my-1' src={Boy5} alt='' />}
+      {icon === 'boy-6' && <img className='round-img my-1' src={Boy6} alt='' />}
+      {icon === 'boy-7' && <img className='round-img my-1' src={Boy7} alt='' />}
+      {icon === 'girl-1' && (
+        <img className='round-img my-1' src={Girl1} alt='' />
+      )}
+      {icon === 'girl-2' && (
+        <img className='round-img my-1' src={Girl2} alt='' />
+      )}
+      {icon === 'girl-3' && (
+        <img className='round-img my-1' src={Girl3} alt='' />
+      )}
+      {icon === 'girl-4' && (
+        <img className='round-img my-1' src={Girl4} alt='' />
+      )}
+      {icon === 'girl-5' && (
+        <img className='round-img my-1' src={Girl5} alt='' />
+      )}
+      {icon === 'girl-6' && (
+        <img className='round-img my-1' src={Girl6} alt='' />
+      )}
+      {icon === 'girl-7' && (
+        <img className='round-img my-1' src={Girl7} alt='' />
+      )}
     </Fragment>
   );
 };

@@ -3,13 +3,7 @@ import { setAlert } from './alert';
 
 import { getMyRequests, getUserRequests } from './prayers';
 
-import {
-  GET_PROFILE,
-  PROFILE_ERROR,
-  UPDATE_PROFILE,
-  GET_PROFILES,
-  CLEAR_PROFILE
-} from './types';
+import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE } from './types';
 
 // Get current user's profile
 export const getCurrentProfile = () => async dispatch => {

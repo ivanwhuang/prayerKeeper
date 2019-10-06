@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { addUserRequest } from '../../actions/keeper';
 import Moment from 'react-moment';
 
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 
 import Avatar from '../layout/Avatar';
 

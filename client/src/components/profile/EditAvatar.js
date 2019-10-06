@@ -56,8 +56,7 @@ const EditAvatar = ({ auth: { user }, updateAvatar, history }) => {
       >
         <button className='avatarCard bg-secondary'>
           <Card
-            className='bg-light p-1 my-1'
-            style={{ width: '10rem', marginLeft: '5px', marginRight: '5px' }}
+            className='bg-light avatar-card-icon p-1 my-1'
             onClick={() => setAvatar('boy-1')}
           >
             <Card.Body style={{ textAlign: 'center' }}>
@@ -68,8 +67,7 @@ const EditAvatar = ({ auth: { user }, updateAvatar, history }) => {
 
         <button className='avatarCard bg-success'>
           <Card
-            className='bg-light p-1 my-1'
-            style={{ width: '10rem', marginLeft: '5px', marginRight: '5px' }}
+            className='bg-light avatar-card-icon p-1 my-1'
             onClick={() => setAvatar('boy-2')}
           >
             <Card.Body style={{ textAlign: 'center' }}>
@@ -80,8 +78,7 @@ const EditAvatar = ({ auth: { user }, updateAvatar, history }) => {
 
         <button className='avatarCard bg-danger'>
           <Card
-            className='bg-light p-1 my-1'
-            style={{ width: '10rem', marginLeft: '5px', marginRight: '5px' }}
+            className='bg-light avatar-card-icon p-1 my-1'
             onClick={() => setAvatar('boy-3')}
           >
             <Card.Body style={{ textAlign: 'center' }}>
@@ -92,8 +89,7 @@ const EditAvatar = ({ auth: { user }, updateAvatar, history }) => {
 
         <button className='avatarCard bg-warning'>
           <Card
-            className='bg-light p-1 my-1'
-            style={{ width: '10rem', marginLeft: '5px', marginRight: '5px' }}
+            className='bg-light avatar-card-icon p-1 my-1'
             onClick={() => setAvatar('boy-4')}
           >
             <Card.Body style={{ textAlign: 'center' }}>
@@ -104,8 +100,7 @@ const EditAvatar = ({ auth: { user }, updateAvatar, history }) => {
 
         <button className='avatarCard bg-salmon'>
           <Card
-            className='bg-light p-1 my-1'
-            style={{ width: '10rem', marginLeft: '5px', marginRight: '5px' }}
+            className='bg-light avatar-card-icon p-1 my-1'
             onClick={() => setAvatar('boy-5')}
           >
             <Card.Body style={{ textAlign: 'center' }}>
@@ -116,8 +111,7 @@ const EditAvatar = ({ auth: { user }, updateAvatar, history }) => {
 
         <button className='avatarCard bg-info'>
           <Card
-            className='bg-light p-1 my-1'
-            style={{ width: '10rem', marginLeft: '5px', marginRight: '5px' }}
+            className='bg-light avatar-card-icon p-1 my-1'
             onClick={() => setAvatar('boy-6')}
           >
             <Card.Body style={{ textAlign: 'center' }}>
@@ -128,8 +122,7 @@ const EditAvatar = ({ auth: { user }, updateAvatar, history }) => {
 
         <button className='avatarCard bg-purple'>
           <Card
-            className='bg-light p-1 my-1'
-            style={{ width: '10rem', marginLeft: '5px', marginRight: '5px' }}
+            className='bg-light avatar-card-icon p-1 my-1'
             onClick={() => setAvatar('boy-7')}
           >
             <Card.Body style={{ textAlign: 'center' }}>
@@ -140,8 +133,7 @@ const EditAvatar = ({ auth: { user }, updateAvatar, history }) => {
 
         <button className='avatarCard bg-secondary'>
           <Card
-            className='bg-light p-1 my-1'
-            style={{ width: '10rem', marginLeft: '5px', marginRight: '5px' }}
+            className='bg-light avatar-card-icon p-1 my-1'
             onClick={() => setAvatar('girl-1')}
           >
             <Card.Body style={{ textAlign: 'center' }}>
@@ -152,8 +144,7 @@ const EditAvatar = ({ auth: { user }, updateAvatar, history }) => {
 
         <button className='avatarCard bg-success'>
           <Card
-            className='bg-light p-1 my-1'
-            style={{ width: '10rem', marginLeft: '5px', marginRight: '5px' }}
+            className='bg-light avatar-card-icon p-1 my-1'
             onClick={() => setAvatar('girl-2')}
           >
             <Card.Body style={{ textAlign: 'center' }}>
@@ -164,8 +155,7 @@ const EditAvatar = ({ auth: { user }, updateAvatar, history }) => {
 
         <button className='avatarCard bg-danger'>
           <Card
-            className='bg-light p-1 my-1'
-            style={{ width: '10rem', marginLeft: '5px', marginRight: '5px' }}
+            className='bg-light avatar-card-icon p-1 my-1'
             onClick={() => setAvatar('girl-3')}
           >
             <Card.Body style={{ textAlign: 'center' }}>
@@ -176,8 +166,7 @@ const EditAvatar = ({ auth: { user }, updateAvatar, history }) => {
 
         <button className='avatarCard bg-warning'>
           <Card
-            className='bg-light p-1 my-1'
-            style={{ width: '10rem', marginLeft: '5px', marginRight: '5px' }}
+            className='bg-light avatar-card-icon p-1 my-1'
             onClick={() => setAvatar('girl-4')}
           >
             <Card.Body style={{ textAlign: 'center' }}>
@@ -188,8 +177,7 @@ const EditAvatar = ({ auth: { user }, updateAvatar, history }) => {
 
         <button class='avatarCard bg-salmon'>
           <Card
-            className='bg-light p-1 my-1 bg-info'
-            style={{ width: '10rem', marginLeft: '5px', marginRight: '5px' }}
+            className='bg-light avatar-card-icon p-1 my-1'
             onClick={() => setAvatar('girl-5')}
           >
             <Card.Body style={{ textAlign: 'center' }}>
@@ -200,8 +188,7 @@ const EditAvatar = ({ auth: { user }, updateAvatar, history }) => {
 
         <button class='avatarCard bg-info'>
           <Card
-            className='bg-light p-1 my-1 avatarCard'
-            style={{ width: '10rem', marginLeft: '5px', marginRight: '5px' }}
+            className='bg-light avatar-card-icon p-1 my-1'
             onClick={() => setAvatar('girl-6')}
           >
             <Card.Body style={{ textAlign: 'center' }}>
@@ -212,8 +199,7 @@ const EditAvatar = ({ auth: { user }, updateAvatar, history }) => {
 
         <button className='avatarCard bg-purple'>
           <Card
-            className='bg-light p-1 my-1'
-            style={{ width: '10rem', marginLeft: '5px', marginRight: '5px' }}
+            className='bg-light avatar-card-icon p-1 my-1'
             onClick={() => setAvatar('girl-7')}
           >
             <Card.Body style={{ textAlign: 'center' }}>

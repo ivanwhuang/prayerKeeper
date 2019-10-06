@@ -16,7 +16,7 @@ const PostItem = ({
   return (
     <Fragment>
       <div className='post bg-white p-1 my-1' style={{ display: 'flex' }}>
-        <div style={{ marginLeft: '2rem', marginRight: '2rem' }}>
+        <div className='post-avatar'>
           <Link to={`/profile/${user._id}`}>
             <Avatar icon={user.avatar} />
           </Link>

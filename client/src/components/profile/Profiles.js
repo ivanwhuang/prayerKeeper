@@ -7,7 +7,11 @@ import { getProfiles } from '../../actions/profiles';
 
 import { Container } from 'react-bootstrap';
 
-const Profiles = ({ getProfiles, profiles: { profiles, loading } }) => {
+const Profiles = ({
+  getProfiles,
+  profiles: { profiles, loading },
+  auth: { user }
+}) => {
   useEffect(() => {
     getProfiles();
   }, [getProfiles]);
@@ -24,7 +28,6 @@ const Profiles = ({ getProfiles, profiles: { profiles, loading } }) => {
             You!
           </p>
           <div
-            // className='profiles'
             style={{
               display: 'flex',
               flexWrap: 'wrap',
@@ -32,9 +35,12 @@ const Profiles = ({ getProfiles, profiles: { profiles, loading } }) => {
             }}
           >
             {profiles.length > 0 ? (
-              profiles.map(profile => (
-                <ProfileItem key={profile._id} profile={profile} />
-              ))
+              profiles.map(
+                profile =>
+                  profile.user._id !== user._id && (
+                    <ProfileItem key={profile._id} profile={profile} />
+                  )
+              )
             ) : (
               <h4>No Profiles found...</h4>
             )}
@@ -47,11 +53,13 @@ const Profiles = ({ getProfiles, profiles: { profiles, loading } }) => {
 
 Profiles.propTypes = {
   getProfiles: PropTypes.func.isRequired,
-  profiles: PropTypes.object.isRequired
+  profiles: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  profiles: state.profiles
+  profiles: state.profiles,
+  auth: state.auth
 });
 
 export default connect(

@@ -29,7 +29,7 @@ const Profile = ({
       <div>
         <p className='large'>
           {profile.user.name}'s Profile
-          <div style={{ float: 'right' }}>
+          <div className='profile-button'>
             <Link to='/people' className='btn btn-dark'>
               Back to Profiles
             </Link>

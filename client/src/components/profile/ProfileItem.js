@@ -2,17 +2,14 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 import Avatar from '../layout/Avatar';
 
-const ProfileItem = ({ profile: { user, location, hobbies } }) => {
+const ProfileItem = ({ profile: { user } }) => {
   return (
     <Fragment>
-      <Card
-        className='profiles bg-white p-1 my-1'
-        style={{ width: '15rem', marginLeft: '5px', marginRight: '5px' }}
-      >
+      <Card className='profile-card bg-white p-1 my-1'>
         <Card.Body style={{ textAlign: 'center' }}>
           <Link to={`/profile/${user._id}`}>
             <Avatar icon={user.avatar} />
