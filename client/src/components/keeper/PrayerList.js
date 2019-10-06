@@ -61,10 +61,12 @@ const PrayerList = ({ prayerList, addRequest, deleteRequest }) => {
             <Form.Group controlId='formUserRequest'>
               <Form.Label>Prayer Request</Form.Label>
               <Form.Control
+                as='textarea'
                 placeholder=''
                 name='text'
                 value={formData.text}
                 onChange={handleChange}
+                rows='2'
                 required
               />
               <Form.Text className='text-muted'>

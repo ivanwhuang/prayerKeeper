@@ -9,7 +9,7 @@ import { Button } from 'react-bootstrap';
 import Avatar from '../layout/Avatar';
 
 const PostItem = ({
-  post: { _id, name, user, text, likes, comments, date },
+  post: { _id, name, user, avatar, text, likes, comments, date },
   auth,
   deletePost
 }) => {
@@ -17,8 +17,8 @@ const PostItem = ({
     <Fragment>
       <div className='post bg-white p-1 my-1' style={{ display: 'flex' }}>
         <div className='post-avatar'>
-          <Link to={`/profile/${user._id}`}>
-            <Avatar icon={user.avatar} />
+          <Link to={`/profile/${user}`}>
+            <Avatar icon={avatar} />
           </Link>
         </div>
         <div style={{}}>

@@ -20,6 +20,9 @@ const PostSchema = new mongoose.Schema({
       }
     }
   ],
+  avatar: {
+    type: String
+  },
   comments: [
     {
       user: {
