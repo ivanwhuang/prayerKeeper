@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Alert } from 'react-bootstrap';
 
-const CustomAlert = ({ alerts }) => {
+const CustomAlert = ({ alert: { alerts } }) => {
   const displayAlerts =
     alerts !== null &&
     alerts.length > 0 &&
@@ -16,11 +16,11 @@ const CustomAlert = ({ alerts }) => {
 };
 
 CustomAlert.propTypes = {
-  alerts: PropTypes.array.isRequired
+  alert: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  alerts: state.alert
+  alert: state.alert
 });
 
 export default connect(mapStateToProps)(CustomAlert);
