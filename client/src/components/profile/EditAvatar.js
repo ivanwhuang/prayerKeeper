@@ -6,9 +6,11 @@ import { Container, Card, Button } from 'react-bootstrap';
 
 import { updateAvatar } from '../../actions/auth';
 
+import Spinner from '../layout/Spinner';
+
 import Avatar from '../layout/Avatar';
 
-const EditAvatar = ({ auth: { user }, updateAvatar, history }) => {
+const EditAvatar = ({ auth: { user, loading }, updateAvatar, history }) => {
   const [avatar, setAvatar] = useState(user.avatar);
 
   const handleSubmit = e => {
@@ -16,7 +18,9 @@ const EditAvatar = ({ auth: { user }, updateAvatar, history }) => {
     updateAvatar({ avatar }, history);
   };
 
-  return (
+  return loading ? (
+    <Spinner />
+  ) : (
     <Container>
       <Card
         className='currentAvatar'

@@ -42,19 +42,6 @@ router.post(
   }
 );
 
-// @route   GET api/prayers
-// @desc    Get all prayers
-// @access  Private
-// router.get('/', auth, async (req, res) => {
-//   try {
-//     const prayers = await Prayer.find().sort({ date: -1 });
-//     res.json(prayers);
-//   } catch (err) {
-//     console.error(err.message);
-//     res.status(500).send('Server Error');
-//   }
-// });
-
 // @route   GET api/prayers/:id
 // @desc    Get prayer request by ID
 // @access  Private
@@ -73,6 +60,48 @@ router.get('/:id', auth, async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+
+// @route   POST api/prayers/:id
+// @desc    Edit prayer request by ID
+// @access  Private
+router.post(
+  '/:id',
+  [
+    auth,
+    [
+      check('text', 'Text is required for a post')
+        .not()
+        .isEmpty()
+    ]
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    try {
+      const prayer = await Prayer.findById(req.params.id);
+      if (!prayer) {
+        return res.status(404).json({ msg: 'Prayer request not found' });
+      }
+
+      prayer = await Prayer.findOneAndUpdate(
+        { _id: req.params.id },
+        { $set: { text: text } },
+        { new: true }
+      );
+
+      res.json(prayer);
+    } catch (err) {
+      console.error(err.message);
+      if (err.kind === 'ObjectId') {
+        return res.status(404).json({ msg: 'Prayer not found' });
+      }
+      res.status(500).send('Server Error');
+    }
+  }
+);
 
 // @route   GET api/prayers/
 // @desc    Get all prayer requests belonging to current user
